@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Grid {
+public class Grid{
      String[][] board=new String[10][10];
      int Carrier=5;
      int Battleship=4;
@@ -56,4 +56,6 @@ public class Grid {
         }
 
     }
+
+
 }

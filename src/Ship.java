@@ -1,9 +1,5 @@
-public class Ship {
-    int x;
-    int y;
-    String plane;
-    int spaces;
-    String shipName;
+public class Ship extends ShipX  {
+
     public Ship(int x,int y,String plane,int spaces,String shipName)
     {
         this.x=x;
@@ -27,7 +23,7 @@ public class Ship {
         return plane;
     }
 
-public void print()
+ public void print()
 {
     System.out.println(x);
     System.out.println(y);

@@ -8,48 +8,71 @@ public class Battleship {
     public static void main(String[] args) {
         System.out.println("Battleship Multiplayer");
         System.out.println("Enter Player 1 name: ");
-        Player player1=new Player(in.next());
+        String p1name="";
+        try{p1name=in.next();}
+        catch (Exception e){
+            System.out.println("Not an acceptable name");
+        }
+        Player player1=new Player(p1name);
         System.out.println("Enter Player 2 name: ");
-        Player player2=new Player(in.next());
+        String p2name="";
+        try{p2name=in.next();}
+        catch (Exception e){
+            System.out.println("Not an acceptable name");
+        }
+        Player player2=new Player(p2name);
 while(!gameOver) {
     if(i==0){
-//    player1.addPieces("Carrier");
-//    player1.gridP.printBoard();
-//    player1.addPieces("Battleship");
-//    player1.gridP.printBoard();
-//    player1.addPieces("Destroyer");
-//    player1.gridP.printBoard();
-//    player1.addPieces("Submarine");
-//    player1.gridP.printBoard();
-//    player1.addPieces("PatrolBoat");
-//    player1.gridP.printBoard();
+    player1.addPieces("Carrier");
+    player1.gridP.printBoard();
+    player1.addPieces("Battleship");
+    player1.gridP.printBoard();
+    player1.addPieces("Destroyer");
+    player1.gridP.printBoard();
+    player1.addPieces("Submarine");
+    player1.gridP.printBoard();
+    player1.addPieces("PatrolBoat");
+    player1.gridP.printBoard();
 
     player2.addPieces("Carrier");
-    player2.gridP.printBoard();
+
     player2.addPieces("Battleship");
-    player2.gridP.printBoard();
+
     player2.addPieces("Destroyer");
-    player2.gridP.printBoard();
+
     player2.addPieces("Submarine");
-    player2.gridP.printBoard();
+
     player2.addPieces("PatrolBoat");
     player2.gridP.printBoard();
     i++;}
     else if(turns%2==0){
         System.out.println(player1.name+" ,Enter the coordinates of your guess: ");
-        String p1=in.next();
-        player1.guessIt(player2,p1);
+        String p2="";
+        try{
+       p2=in.next();}
+        catch (Exception e)
+        {
+            System.out.println("Something is wrong");
+        }
+        player1.guessIt(player2,p2);
+
         player2.gridP.printBoard();
 
    }
-//    else
-//    {
-//        System.out.println(player2.name+" ,Enter the coordinates of your guess: ");
-//        String p1=in.next();
-//        player1.guessIt(player2,p1);
-//        player1.gridP.printBoard();
-//        turns++;
-//    }
+    else
+    {
+        System.out.println(player2.name+" ,Enter the coordinates of your guess: ");
+        String p1="";
+        try{
+            p1=in.next();}
+        catch (Exception e)
+        {
+            System.out.println("Something is wrong");
+        }
+        player2.guessIt(player1,p1);
+        player2.gridP.printBoard();
+        turns++;
+    }
     if(player1.won||player2.won)
     {
         System.out.println("Play again Y or N");
